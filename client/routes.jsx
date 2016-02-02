@@ -1,3 +1,11 @@
+const {
+  Router,
+  Route,
+  IndexRoute,
+  history
+} = ReactRouter;
+const browserHistory = history.createHistory();
+
 Routes = React.createClass({
   render() {
     return(
