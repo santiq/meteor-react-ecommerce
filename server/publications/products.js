@@ -1,4 +1,4 @@
-Metheor.publish('products',(category)=>{
+Meteor.publish('products',(category)=>{
 	check(category,String);
 	if(!_.contains(Constants.categories,category)){
 		return Products.find({});
