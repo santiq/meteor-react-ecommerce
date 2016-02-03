@@ -1,0 +1,1 @@
+ShoppingCart = new Mongo.Collection('shopping-cart');
