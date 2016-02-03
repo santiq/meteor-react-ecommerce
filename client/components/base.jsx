@@ -1,7 +1,9 @@
 Base = React.createClass({
-  render() {
-    return(
-      <Toaster/>
-    );
-  }
+	render() {	
+		return(
+			<div>
+				<Toaster />
+			</div>
+		);
+	}
 });
