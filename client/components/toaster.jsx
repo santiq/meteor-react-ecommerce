@@ -34,7 +34,7 @@
 
     },
 
-    render(){console.log(this.state.type)
+    render(){
 		const blue   = '#0000FF';
 		const red    = '#FF0000';
 		const yellow = '#FFFF00';
