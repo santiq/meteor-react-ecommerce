@@ -2,7 +2,7 @@ Meteor.methods({
 
 	/** 
 	 * @summary Adds a product to the collection
-	 * @param {String} name - Product name
+	 * @param {String} title - Product title
 	 * @param {String} description - Short description of the product
 	 * @param {String} category - A valid category from the list of categories
 	 * @param {Number} price - Price
@@ -10,18 +10,19 @@ Meteor.methods({
 	 * @param {Array} otherImages - List of url
 	 */
 
-	addProduct(name,description,category,price,coverImage,otherImages = []){
-		check(name,String);
+	addProduct(title,description,category,price,coverImage,otherImages = []){
+		price = Number(price);
+		check(title,String);
 		check(description,String);
 		check(price,Number);
 		check(category,String);
-		check(imageUrl,String);
+		check(coverImage,String);
 
 		if(!_.contains(Constants.server.categories,category))
 			throw new Meteor.Error("incorrect-category",
 				"the product has incorrect category");
 
-		Products.insert({name:name,description:description,category:category,price:price,coverImage:coverImage,otherImages:otherImages});	
+		Products.insert({title:title,description:description,category:category,price:price,coverImage:coverImage,otherImages:otherImages});	
 
 		return 'ok';
 	},
@@ -51,7 +52,7 @@ Meteor.methods({
 	 */
 	editProduct(productId,updatedProduct){
 		check(updatedProduct,Object);
-		if(!updatedProduct.name || updatedProduct.price || updatedProduct.coverImage || updatedProduct.description)
+		if(!updatedProduct.title || updatedProduct.price || updatedProduct.coverImage || updatedProduct.description)
 			throw new Meteor.Error("missing-properties",
 				"The updated product is uncompleted");
 
