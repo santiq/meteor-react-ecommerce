@@ -12,6 +12,7 @@ Routes = React.createClass({
       <Router history={browserHistory}>
         <Route path='/' component={Base}>
           <Route path='login' component={Login}/>
+          <Route path='upload' component={productUploader}/>
         </Route>
       </Router>
     );
