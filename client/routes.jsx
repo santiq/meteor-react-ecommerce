@@ -13,6 +13,7 @@ Routes = React.createClass({
         <Route path='/' component={Base}>
           <Route path='login' component={Login}/>
           <Route path='upload' component={productUploader}/>
+          <Route path='main' component={ProductsContainer}/>
         </Route>
       </Router>
     );
